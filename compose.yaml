@@ -29,5 +29,5 @@ volumes:
 
 networks:
   task-manager-network:
-    external: tru
+    external: true
 
