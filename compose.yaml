@@ -1,7 +1,6 @@
 services:
   backend:
     build: ./backend
-    container_name: task-backend
     ports:
       - "5001:5000"
     volumes:
@@ -14,7 +13,6 @@ services:
 
   frontend:
     build: ./frontend
-    container_name: task-frontend
     ports:
       - "5174:5173"
     networks:
