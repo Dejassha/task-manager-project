@@ -1,0 +1,33 @@
+services:
+  backend:
+    build: ./backend
+    container_name: task-backend
+    ports:
+      - "5001:5000"
+    volumes:
+      - task-manager-data:/data
+    environment:
+      DATABASE_PATH: /data/tasks.db
+    networks:
+      - task-manager-network
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: task-frontend
+    ports:
+      - "5174:5173"
+    networks:
+      - task-manager-network
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  task-manager-data:
+    external: true
+
+networks:
+  task-manager-network:
+    external: tru
+

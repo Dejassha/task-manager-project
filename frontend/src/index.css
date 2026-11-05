@@ -1,0 +1,13 @@
+:root {
+  font-family: system-ui, Segoe UI, Roboto, sans-serif;
+  color: #111827;
+  background: #f3f4f6;
+}
+
+body { margin: 0; }
+
+#root { min-height: 100vh; }
+
+h1, h2 { color: #111827; }
+h2 { font-size: 18px; margin: 0 0 8px; }
+p { margin: 0 0 8px; }
