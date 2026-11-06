@@ -2,7 +2,7 @@ services:
   backend:
     build: ./backend
     ports:
-      - "5001:5000"
+      - "${BACKEND_HOST_PORT:-5001}:5000"
     volumes:
       - task-manager-data:/data
     environment:
@@ -14,7 +14,9 @@ services:
   frontend:
     build: ./frontend
     ports:
-      - "5174:5173"
+      - "${FRONTEND_HOST_PORT:-5174}:5173"
+    environment:
+      VITE_API_URL: ${VITE_API_URL:-http://localhost:5001/api/tasks}
     networks:
       - task-manager-network
     depends_on:
